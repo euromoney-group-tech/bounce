@@ -16,11 +16,11 @@ namespace Bounce.Framework {
             TaskRunner = taskRunner;
         }
 
-        public int Run(string bounceDirectory, string [] rawArguments) {
+        public int Run(string bounceDirectory, string workingDirectory, string [] rawArguments) {
             try {
-                Directory.SetCurrentDirectory(Path.GetDirectoryName(bounceDirectory));
+                Directory.SetCurrentDirectory(workingDirectory);
 
-				Props.Load(rawArguments);
+                Props.Load(rawArguments);
 
                 var parameters = ParsedArguments(rawArguments);
                 Parameters.Main = new Parameters(parameters);
